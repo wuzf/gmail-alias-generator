@@ -1,0 +1,6 @@
+name = "gmail-alias-generator"
+compatibility_date = "2025-04-06"
+pages_build_output_dir = "./public"
+
+[dev]
+port = 8788

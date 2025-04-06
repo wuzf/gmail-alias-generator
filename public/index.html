@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gmail 无限别名生成器</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">G</div>
+        <div>
+          <p class="eyebrow" id="eyebrow">Gmail Alias Toolkit</p>
+          <h1 id="title">Gmail 无限别名生成器</h1>
+        </div>
+      </div>
+
+      <label class="language-field">
+        <span id="languageLabel">语言</span>
+        <select id="languageSelect" aria-label="Language">
+          <option value="zh">中文</option>
+          <option value="en">English</option>
+          <option value="es">Español</option>
+          <option value="hi">हिन्दी</option>
+          <option value="ru">Русский</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="ar">العربية</option>
+        </select>
+      </label>
+    </header>
+
+    <main class="layout">
+      <section class="hero card">
+        <p class="subtitle" id="subtitle">
+          通过点号、加号、大小写和域名组合，快速生成可用于分类收件的 Gmail 别名。
+        </p>
+
+        <div class="input-group">
+          <label for="emailInput" id="inputLabel">Gmail 用户名</label>
+          <div class="email-input-container">
+            <input
+              id="emailInput"
+              class="email-input"
+              type="text"
+              autocomplete="off"
+              spellcheck="false"
+              placeholder="请输入 Gmail 用户名"
+            >
+            <span class="email-suffix">@gmail.com</span>
+          </div>
+          <p class="hint" id="inputHint">只输入 @ 前面的部分，例如：yourname</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-header">
+          <h2 id="rulesTitle">生成规则</h2>
+        </div>
+        <div class="rules-grid" id="rulesGrid"></div>
+      </section>
+
+      <section class="card controls-card">
+        <div class="section-header">
+          <h2 id="countTitle">生成数量</h2>
+        </div>
+
+        <div class="count-controls">
+          <label class="count-field">
+            <span id="countCustomLabel">自定义数量</span>
+            <div class="count-input-row">
+              <input
+                id="countInput"
+                class="count-input"
+                type="number"
+                min="1"
+                max="10000"
+                step="1"
+                inputmode="numeric"
+                value="1000"
+              >
+              <button id="generateButton" class="generate-button" disabled>生成别名</button>
+            </div>
+            <span class="hint" id="countInputHint">可输入 1 - 10000</span>
+          </label>
+        </div>
+      </section>
+
+      <section class="card results-card hidden" id="resultsSection">
+        <div class="section-header">
+          <div>
+            <h2 id="resultsTitle">生成结果</h2>
+            <p class="result-summary" id="resultSummary"></p>
+          </div>
+          <button id="copyButton" class="secondary-button">复制结果</button>
+        </div>
+
+        <div class="pagination-bar">
+          <p class="pagination-info" id="pageInfo"></p>
+          <div class="pagination-actions">
+            <button id="prevPageButton" class="secondary-button" type="button">上一页</button>
+            <button id="nextPageButton" class="secondary-button" type="button">下一页</button>
+          </div>
+        </div>
+
+        <div class="results-preview">
+          <ol id="resultsList" class="results-list"></ol>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast" aria-live="polite"></div>
+
+  <script src="./alias-generator.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
